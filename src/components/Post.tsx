@@ -65,8 +65,7 @@ export function Post() {
                     {feature.body}
                   </p>
                   <Link
-                    to="comments"
-                    relative="path"
+                    to="/comments"
                     className="flex items-center text-indigo-500 hover:text-indigo-900"
                   >
                     <p className="text-lg leading-8  mt-2">Ver comentários</p>
