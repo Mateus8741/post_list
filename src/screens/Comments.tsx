@@ -1,16 +1,29 @@
-interface ModalProps {
-  visible: boolean;
-  onClose: () => void;
+import { useState } from "react";
+import { api } from "../services/api";
+
+interface CommentsProps {
+  name: string;
+  email: string;
+  body: string;
 }
 
-export function Modal({ visible, onClose }: ModalProps) {
-  if (!visible) return null;
+export function Comments() {
+  const [comments, setComments] = useState<CommentsProps[]>([]);
+
+  function getComments(id: string) {
+    api
+      .get(`/posts/${id}/comments`)
+      .then((response) => {
+        setComments(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
-    <div
-      onClick={onClose}
-      className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center"
-    >
+    <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
       <div className="mt-20 max-w-lg sm:mx-auto md:max-w-none">
         <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
           <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left border px-4 py-4 border-indigo-500 rounded-xl">

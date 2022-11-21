@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { HiOutlineLightBulb, HiArrowDown } from "react-icons/hi2";
+import { Link } from "react-router-dom";
+
+import { HiOutlineLightBulb, HiArrowRight } from "react-icons/hi2";
 
 import { api } from "../services/api";
-import { Modal } from "./Modal";
 
 interface PostProps {
   userId: string;
@@ -14,11 +15,6 @@ interface PostProps {
 
 export function Post() {
   const [posts, setPosts] = useState<PostProps[]>([]);
-  const [showModal, setShowModal] = useState(false);
-
-  function handleOnClose() {
-    setShowModal(false);
-  }
 
   async function getPosts() {
     await api
@@ -68,25 +64,23 @@ export function Post() {
                   <p className="mt-2 text-base leading-7 text-gray-300">
                     {feature.body}
                   </p>
-                  <button
-                    onClick={() => {
-                      setShowModal(true);
-                    }}
+                  <Link
+                    to="comments"
+                    relative="path"
                     className="flex items-center text-indigo-500 hover:text-indigo-900"
                   >
-                    <HiArrowDown
-                      className="h-5 w-5 mt-2 mr-1"
+                    <p className="text-lg leading-8  mt-2">Ver comentários</p>
+                    <HiArrowRight
+                      className="h-5 w-5 mt-2 ml-1"
                       aria-hidden="true"
                     />
-                    <p className="text-lg leading-8  mt-2">Ver comentários</p>
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <Modal onClose={handleOnClose} visible={showModal} />
     </div>
   );
 }
