@@ -62,7 +62,7 @@ _Obs.: Before to continue, be sure to have the API running_
 # Be sure the file 'packages/web/src/services/api.ts' have the IP to your API
 
 # Start the client
-$ yarn web start
+$ yarn dev
 ```
 
 ## 🤔 How to contribute
