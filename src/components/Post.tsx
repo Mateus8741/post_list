@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { HiOutlineLightBulb, HiArrowRight } from "react-icons/hi2";
 
@@ -15,6 +15,8 @@ interface PostProps {
 
 export function Post() {
   const [posts, setPosts] = useState<PostProps[]>([]);
+
+  const navigate = useNavigate();
 
   async function getPosts() {
     await api
@@ -64,8 +66,8 @@ export function Post() {
                   <p className="mt-2 text-base leading-7 text-gray-300">
                     {feature.body}
                   </p>
-                  <Link
-                    to="/comments"
+                  <button
+                    onClick={() => navigate("/comments")}
                     className="flex items-center text-indigo-500 hover:text-indigo-900"
                   >
                     <p className="text-lg leading-8  mt-2">Ver comentários</p>
@@ -73,7 +75,7 @@ export function Post() {
                       className="h-5 w-5 mt-2 ml-1"
                       aria-hidden="true"
                     />
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}
