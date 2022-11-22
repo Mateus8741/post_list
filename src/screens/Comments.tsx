@@ -13,7 +13,6 @@ export function Comments() {
   const [comments, setComments] = useState<CommentsProps[]>([]);
   const { id } = useParams();
   console.log(id);
-  
 
   function getComments() {
     api
@@ -36,12 +35,12 @@ export function Comments() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="sm:text-center">
           <h2 className="text-lg font-semibold leading-8 text-indigo-600">
-            Comentários
+            Comentários {id}
           </h2>
         </div>
 
         <div className="mt-20 max-w-lg sm:mx-auto md:max-w-none">
-          <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
+          <div className="grid grid-cols-1 gap-y-16 md:grid-cols-1 md:gap-x-12 md:gap-y-16">
             {comments.map((comment) => (
               <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left border px-4 py-4 border-indigo-500 rounded-xl">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">

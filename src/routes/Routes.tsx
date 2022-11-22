@@ -9,7 +9,7 @@ export function Route() {
     <BrowserRouter>
       <Routes>
         <Switch path="/" element={<Home />} />
-        <Switch path="/comments:id" element={<Comments />} />
+        <Switch path="/:id/comments" element={<Comments />} />
       </Routes>
     </BrowserRouter>
   );

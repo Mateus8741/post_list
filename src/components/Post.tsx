@@ -67,7 +67,7 @@ export function Post() {
                     {feature.body}
                   </p>
                   <button
-                    onClick={() => navigate(`/comments/${feature.id}`)}
+                    onClick={() => navigate(`/${feature.id}/comments`)}
                     className="flex items-center text-indigo-500 hover:text-indigo-900"
                   >
                     <p className="text-lg leading-8  mt-2">Ver comentários</p>
