@@ -7,13 +7,6 @@ module.exports = {
         sans: "Roboto, sans-serif",
       },
       colors: {
-        ignite: {
-          500: "#129E57",
-        },
-        yellow: {
-          500: "#F7DD43",
-          700: "#E5CD3D",
-        },
         gray: {
           100: "#E1E1E6",
           300: "#8D8D99",
