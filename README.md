@@ -14,7 +14,7 @@
   <a href="#-license">License</a>
 </p>
 
-<img alt="Layout" src="https://res.cloudinary.com/eliasgcf/image/upload/v1587423410/gofinances/mockup_lqgnbt.png">
+![image](https://user-images.githubusercontent.com/62652109/203362938-16c4c52c-7918-453c-bb81-0fa620b5e557.png)
 
 ## 💰 About the project
 
