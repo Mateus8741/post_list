@@ -14,7 +14,7 @@
   <a href="#-license">License</a>
 </p>
 
-![image](https://user-images.githubusercontent.com/62652109/203362938-16c4c52c-7918-453c-bb81-0fa620b5e557.png)
+![image](https://user-images.githubusercontent.com/62652109/203363418-9376aca4-448c-41b3-86b4-1ebde22a5b1d.png)
 
 ## 💰 About the project
 
