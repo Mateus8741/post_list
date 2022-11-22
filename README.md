@@ -14,12 +14,6 @@
   <a href="#-license">License</a>
 </p>
 
-<!-- <p id="insomniaButton" align="center">
-  <a href="" target="_blank">
-    <img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia">
-  </a>
-</p> -->
-
 <img alt="Layout" src="https://res.cloudinary.com/eliasgcf/image/upload/v1587423410/gofinances/mockup_lqgnbt.png">
 
 ## 💰 About the project
@@ -39,8 +33,6 @@ Technologies that I used to develop this api
 - [Prettier](https://prettier.io/)
 
 ## 💻 Getting started
-
-<!-- Importe o arquivo `Insomnia.json` no Insomnia ou clique no botão [Run in Insomnia](#insomniaButton) -->
 
 ### Requirements
 
