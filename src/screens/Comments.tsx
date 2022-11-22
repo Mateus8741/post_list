@@ -62,7 +62,7 @@ export function Comments() {
         {loading ? (
           <Loading />
         ) : (
-          <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left border px-4 py-4 border-indigo-500 rounded-xl">
+          <div className="mt-20 relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left border px-4 py-4 border-indigo-500 rounded-xl">
             <div className="sm:min-w-0 sm:flex-1">
               <p className="text-lg font-semibold leading-8 text-white ml-1">
                 {postId.title}
