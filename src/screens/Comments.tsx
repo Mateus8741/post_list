@@ -11,15 +11,23 @@ interface CommentsProps {
 
 export function Comments() {
   const [comments, setComments] = useState<CommentsProps[]>([]);
+
   const { id } = useParams();
-  console.log(id);
 
   function getComments() {
     api
       .get(`/posts/${id}/comments`)
       .then((response) => {
         setComments(response.data);
-        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+      api
+      .get(`/posts/${id}`)
+      .then((response) => {
+        console.log("post id",response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -39,24 +47,44 @@ export function Comments() {
           </h2>
         </div>
 
-        <div className="mt-20 max-w-lg sm:mx-auto md:max-w-none">
-          <div className="grid grid-cols-1 gap-y-16 md:grid-cols-1 md:gap-x-12 md:gap-y-16">
-            {comments.map((comment) => (
-              <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left border px-4 py-4 border-indigo-500 rounded-xl">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
-                  <HiOutlineLightBulb className="h-8 w-8" aria-hidden="true" />
-                </div>
-                <div className="sm:min-w-0 sm:flex-1">
-                  <p className="text-lg font-semibold leading-8 text-white mt-2">
-                    {comment.name}
-                  </p>
-                  <p className="mt-2 text-base leading-7 text-gray-300">
-                    {comment.body}
-                  </p>
-                </div>
+        <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left border px-4 py-4 border-indigo-500 rounded-xl">
+          <div className="sm:min-w-0 sm:flex-1">
+            <p className="text-lg font-semibold leading-8 text-white">nome</p>
+            <div className="flex">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                <HiOutlineLightBulb className="h-8 w-8" aria-hidden="true" />
               </div>
-            ))}
+              <p className="mt-2 ml-5 text-base leading-7 text-gray-500">
+                by nick
+              </p>
+            </div>
+            <p className="mt-2 text-base leading-7 text-gray-300">body</p>
+            <div className="w-full p-0.5 bg-gray-800 rounded-lg " />
+            <div className="divide-y divide-gray-800">
+              {comments.map((comment) => (
+                <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left px-4 py-4 divide">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                    <HiOutlineLightBulb
+                      className="h-5 w-5"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="sm:min-w-0 sm:flex-1">
+                    <p className="text-sm font-semibold leading-8 text-white">
+                      {comment.email}
+                    </p>
+                    <p className="mt-2 text-xs leading-7 text-gray-300">
+                      {comment.body}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+
+        <div className="mt-20 max-w-lg sm:mx-auto md:max-w-none">
+          <div className="grid grid-cols-1 gap-y-16 md:grid-cols-1 md:gap-x-12 md:gap-y-16"></div>
         </div>
       </div>
     </div>
