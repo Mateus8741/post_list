@@ -11,6 +11,7 @@ interface CommentsProps {
 
 export function Comments() {
   const [comments, setComments] = useState<CommentsProps[]>([]);
+  const [postId, setPostId] = useState<any>([]);
 
   const { id } = useParams();
 
@@ -24,10 +25,11 @@ export function Comments() {
         console.log(error);
       });
 
-      api
+    api
       .get(`/posts/${id}`)
       .then((response) => {
-        console.log("post id",response.data);
+        setPostId(response.data);
+        console.log("post id", response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -49,17 +51,18 @@ export function Comments() {
 
         <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left border px-4 py-4 border-indigo-500 rounded-xl">
           <div className="sm:min-w-0 sm:flex-1">
-            <p className="text-lg font-semibold leading-8 text-white">nome</p>
+            <p className="text-lg font-semibold leading-8 text-white ml-1">
+              {postId.title}
+            </p>
             <div className="flex">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0 mt-2">
                 <HiOutlineLightBulb className="h-8 w-8" aria-hidden="true" />
               </div>
-              <p className="mt-2 ml-5 text-base leading-7 text-gray-500">
-                by nick
+              <p className="mt-0.5 text-base leading-7 text-gray-300 ml-4">
+                {postId.body}
               </p>
             </div>
-            <p className="mt-2 text-base leading-7 text-gray-300">body</p>
-            <div className="w-full p-0.5 bg-gray-800 rounded-lg " />
+            <div className="w-full p-0.5 bg-gray-800 rounded-lg mt-2" />
             <div className="divide-y divide-gray-800">
               {comments.map((comment) => (
                 <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row text-left px-4 py-4 divide">
